@@ -7,7 +7,7 @@
    if (isset($_REQUEST['op'])) { // incluir
       $op = $_REQUEST['op'];
 
-   } else { // listar
+   } else {                      // listar
       $emprestimos = [
          new Emprestimo(1,
          "Pendrive azul",
