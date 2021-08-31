@@ -9,8 +9,6 @@ class Emprestimo {
     private $estacom;
     private $telefone;
 
-    
-
     function __construct($id,$descricao,$dtaemprestimo,$dtadevolucao,$estacom,$telefone){
         $this->id = $id;
         $this->descricao = $descricao;
