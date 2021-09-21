@@ -46,4 +46,28 @@ class Emprestimo {
  
     }
 
+    public static function listar(){
+        $con = (new Conexao())->getConexao(); // estabelece uma conexao com o banco de dados
+        //preparando o comando sql de inclusao
+        $sql = "select * from emprestimo order by dtaemprestimo";
+        $st = $con->prepare($sql);
+
+        $st->execute();
+
+        $registros = $st->fetchAll();
+        $retorno = [];
+        foreach($registros as $registro) {
+            array_push($retorno,
+                new Emprestimo($registro["id"],
+                            $registro["descricao"],
+                            $registro["dtaemprestimo"],
+                            $registro["dtadevolucao"],
+                            $registro["estacom"],
+                            $registro["telefone"])
+            );
+             
+        };
+        return $retorno;
+    }
+
 }

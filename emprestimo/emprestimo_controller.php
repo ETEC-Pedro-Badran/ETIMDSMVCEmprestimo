@@ -19,15 +19,18 @@
          $emprestimo->incluir(); // incluir no banco de dados
       
 
-   } else {                      // usuário optou por listar os empréstimos
-      $emprestimos = [
+   } else {    
+                        // usuário optou por listar os empréstimos
+      $emprestimos = Emprestimo::listar();
+      /*[
          new Emprestimo(1,
          "Pendrive azul",
-         "23/08/2021",
+         "23/08/2021",  
          null,
          'Andrea',
          '16-99992323')
       ];
+      */
   }
 
 
