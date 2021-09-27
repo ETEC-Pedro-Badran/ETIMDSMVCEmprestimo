@@ -22,7 +22,7 @@ class Emprestimo {
         return $this->$atributo;
     }
     
-    
+    //CRUD - Create
     public function incluir(){
         $con = (new Conexao())->getConexao(); // estabelece uma conexao com o banco de dados
         //preparando o comando sql de inclusao
@@ -46,6 +46,8 @@ class Emprestimo {
  
     }
 
+
+   //R- refresh 
     public static function listar(){
         $con = (new Conexao())->getConexao(); // estabelece uma conexao com o banco de dados
         //preparando o comando sql de inclusao
@@ -69,5 +71,35 @@ class Emprestimo {
         };
         return $retorno;
     }
+
+
+//CRUD - Update
+public function alterar(){
+    $con = (new Conexao())->getConexao(); // estabelece uma conexao com o banco de dados
+    //preparando o comando sql de inclusao
+    $sql = "update emprestimo 
+        set descricao = :descricao,
+        dtaemprestimo = :dtaemprestimo,
+        estacom = :estacom,
+        telefone = :telefone
+        where id = :id ";
+
+    $st = $con->prepare($sql); // banco de dados prepara a consulta
+
+    //relacionar os valores dos atributos do emprestimo com os parametros da consulta
+    $st->bindValue(':id',$this->id);
+    $st->bindValue(':descricao',$this->id);
+    $st->bindValue(':dtaemprestimo',$this->dtaemprestimo);
+    $st->bindValue(':estacom',$this->estacom);
+    $st->bindValue(':telefone',$this->telefone);
+
+    try {
+       $st->execute(); // executa o comando de alteração com o valores dos parametros
+    } catch(PDOException $e) {
+        echo $e->getMessage(); // caso der erro imprime a mensagem de erro
+        $this->id = 0;
+    }
+
+}
 
 }

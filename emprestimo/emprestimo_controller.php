@@ -19,7 +19,13 @@
          $emprestimo->incluir(); // incluir no banco de dados
       
 
-   } else {    
+   } if (isset($_REQUEST["id"])) {
+      
+      $id = $_REQUEST["id"];
+      
+
+
+   }  else {    
                         // usuário optou por listar os empréstimos
       $emprestimos = Emprestimo::listar();
       /*[

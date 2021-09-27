@@ -3,6 +3,7 @@
 </div>    
 <table class='table'> 
  <tr> 
+     <th></th>
      <th >Objeto</th>  
      <th >Está com</th>  
      <th >Data Emprestimo</th>  
@@ -12,6 +13,7 @@
  <?php
     foreach($emprestimos as $emprestimo) {
         echo "<tr>".
+             "<td> <a href='?id=".$emprestimo->__get('id')."'>Alterar</a></td>".
              "<td>".$emprestimo->__get('descricao')."</td>"
              ."<td>".$emprestimo->__get('estacom')."</td>"
              ."<td>".$emprestimo->__get('dtaemprestimo')."</td>"
