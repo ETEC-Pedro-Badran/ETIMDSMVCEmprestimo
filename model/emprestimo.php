@@ -102,4 +102,30 @@ public function alterar(){
 
 }
 
+/**
+ * Obter um emprestimo específico, que é identificado pelo id. 
+ * */ 
+public static function obter($id){
+    $con = (new Conexao())->getConexao(); // estabelece uma conexao com o banco de dados
+    //preparando o comando sql de consulta
+    $sql = "select * from emprestimo where id = :id";
+    $st = $con->prepare($sql);
+    $st->bindValue(":id",$id);
+    $st->execute();
+    $registros = $st->fetchAll();
+    $retorno = null;
+    if (count($registros)>0) {
+        $retorno = new Emprestimo($registros[0]["id"],
+                            $registros[0]["descricao"],
+                            $registros[0]["dtaemprestimo"],
+                            $registros[0]["dtadevolucao"],
+                            $registros[0]["estacom"],
+                            $registros[0]["telefone"]);
+    }
+    return $retorno;
+}
+
+
+
+
 }

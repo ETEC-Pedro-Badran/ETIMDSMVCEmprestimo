@@ -22,7 +22,9 @@
    } if (isset($_REQUEST["id"])) {
       
       $id = $_REQUEST["id"];
-      
+      $emprestimo = Emprestimo::obter($id);
+      echo print_r($emprestimo,true);
+      die();
 
 
    }  else {    
