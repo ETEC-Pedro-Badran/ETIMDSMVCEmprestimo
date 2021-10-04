@@ -22,7 +22,7 @@
       <h1>Objetos emprestados</h1>
 
       <?php 
-        if ($op=='i') {
+        if ($op=='i' || $emprestimo->id>0) {
          include_once 'emprestimo_form.php';
         } else {
          include_once 'emprestimo_list.php';

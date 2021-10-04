@@ -5,6 +5,7 @@
    $emprestimo =  new Emprestimo(0,null,date("Y-m-d"),null,null,null); // cria um objeto de emprestimo com a data de empréstimo preenchida
    $emprestimos = []; // vetor com a lista de objetos emprestados
    $op = 'l'; // armazena a opção do usuário;
+   
    if (isset($_REQUEST['op'])) { //usuario optou por incluir ou alterar usuario
       $op = $_REQUEST['op']; // obtem o valor do parametro op da requisição
       $emprestimo =  new Emprestimo(@$_REQUEST['id'],
@@ -23,8 +24,7 @@
       
       $id = $_REQUEST["id"];
       $emprestimo = Emprestimo::obter($id);
-      echo print_r($emprestimo,true);
-      die();
+   
 
 
    }  else {    

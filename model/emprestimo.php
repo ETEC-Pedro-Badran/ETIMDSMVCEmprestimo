@@ -31,7 +31,7 @@ class Emprestimo {
         $st = $con->prepare($sql); // banco de dados prepara a consulta
 
         //relacionar os valores dos atributos do emprestimo com os parametros da consulta
-        $st->bindValue(':descricao',$this->id);
+        $st->bindValue(':descricao',$this->descricao);
         $st->bindValue(':dtaemprestimo',$this->dtaemprestimo);
         $st->bindValue(':estacom',$this->estacom);
         $st->bindValue(':telefone',$this->telefone);
@@ -88,7 +88,7 @@ public function alterar(){
 
     //relacionar os valores dos atributos do emprestimo com os parametros da consulta
     $st->bindValue(':id',$this->id);
-    $st->bindValue(':descricao',$this->id);
+    $st->bindValue(':descricao',$this->descricao);
     $st->bindValue(':dtaemprestimo',$this->dtaemprestimo);
     $st->bindValue(':estacom',$this->estacom);
     $st->bindValue(':telefone',$this->telefone);
@@ -99,7 +99,6 @@ public function alterar(){
         echo $e->getMessage(); // caso der erro imprime a mensagem de erro
         $this->id = 0;
     }
-
 }
 
 /**

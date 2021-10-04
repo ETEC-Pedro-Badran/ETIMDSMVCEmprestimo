@@ -22,7 +22,7 @@
         <div class="mb-3">
             <label for="dtaemprestimo" class="form-label">Data</label>
             <input type="date" class="form-control" name="dtaemprestimo" 
-                placeholder="Data do empréstimo" validate  value="<?php echo $emprestimo->__get('dtaemprestimo'); ?>">
+                placeholder="Data do empréstimo" validate  value="<?php echo substr($emprestimo->__get('dtaemprestimo'),0,10); ?>">
         </div>
         <input type="reset">
         <input type="submit">
