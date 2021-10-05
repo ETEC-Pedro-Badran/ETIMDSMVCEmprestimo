@@ -13,7 +13,8 @@
  <?php
     foreach($emprestimos as $emprestimo) {
         echo "<tr>".
-             "<td> <a href='?id=".$emprestimo->__get('id')."'>Alterar</a></td>".
+             "<td> <a href='?id=".$emprestimo->__get('id')."' class='btn btn-outline-info'>Alterar</a>".
+             "<a href='#!' oid='".$emprestimo->__get('id')."' class='btn btn-outline-danger excluir'>Excluir</a></td>".
              "<td>".$emprestimo->__get('descricao')."</td>"
              ."<td>".$emprestimo->__get('estacom')."</td>"
              ."<td>".$emprestimo->__get('dtaemprestimo')."</td>"
@@ -23,4 +24,14 @@
 
     }
  ?>
-</table>    
+</table>   
+
+
+<script type="text/javascript"> 
+       document.querySelectorAll(".excluir").forEach( (botao)=>{  
+            botao.addEventListener('click',(e)=>{
+                confirm("Confirma a exclusão do empréstimo? ");// +e.target.attributes.oid.value);
+            });
+        });
+</script>
+

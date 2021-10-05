@@ -24,6 +24,7 @@
             <input type="date" class="form-control" name="dtaemprestimo" 
                 placeholder="Data do empréstimo" validate  value="<?php echo substr($emprestimo->__get('dtaemprestimo'),0,10); ?>">
         </div>
+        <button type="button" onclick="window.history.back()">Voltar</button>
         <input type="reset">
         <input type="submit">
     </form>    

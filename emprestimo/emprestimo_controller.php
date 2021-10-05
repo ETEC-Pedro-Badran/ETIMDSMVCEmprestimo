@@ -19,6 +19,9 @@
       else
          $emprestimo->incluir(); // incluir no banco de dados
       
+      echo "<script>window.location.href='.';</script>";
+      
+      
 
    } if (isset($_REQUEST["id"])) {
       
